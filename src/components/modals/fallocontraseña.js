@@ -28,7 +28,7 @@ const FalloContraseña = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        "https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/user/email.php",
+        "https://vigas.tandempatrimonionacional.eu/ruth/v1/user/email.php",
         {
           method: "POST",
           headers: {

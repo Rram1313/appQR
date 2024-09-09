@@ -20,7 +20,7 @@ function BtnRolUser({ mailto, updateUserRole }) {
       console.log("Iniciando petición para cambiar rol", mail)
 
       const response = await fetch(
-        "https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/user/change-role.php",
+        "https://vigas.tandempatrimonionacional.eu/ruth/v1/user/change-role.php",
         {
           method: "PUT",
           headers: {

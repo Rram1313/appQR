@@ -33,7 +33,7 @@ const ModalRegistro = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        "https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/user/soporte.php",
+        "https://vigas.tandempatrimonionacional.eu/ruth/v1/user/soporte.php",
         {
           method: "POST",
           headers: {

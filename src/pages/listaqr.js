@@ -10,7 +10,7 @@ function ListaQr() {
   return (
     <>
       <Halt></Halt>
-      <ListQr url="https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/qr/list-qr-admin.php"></ListQr>
+      <ListQr url="https://vigas.tandempatrimonionacional.eu/ruth/v1/qr/list-qr-admin.php"></ListQr>
       <BtnBack />
       <BtnUp />
       <Footer></Footer>

@@ -39,7 +39,7 @@ function BtnMasInfoLista({ qrName }) {
 
   const fetchQrs = () => {
     console.log("Fetching data for QR name:", qrName) // Añadido para depuración
-    fetch("https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/qr/info-qr.php", {
+    fetch("https://vigas.tandempatrimonionacional.eu/ruth/v1/qr/info-qr.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

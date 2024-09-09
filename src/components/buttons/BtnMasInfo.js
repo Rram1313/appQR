@@ -39,7 +39,7 @@ function BtnMasInfo({ mailto }) {
   }
 
   const fetchUserInfo = () => {
-    fetch("https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/user/info-user.php", {
+    fetch("https://vigas.tandempatrimonionacional.eu/ruth/v1/user/info-user.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

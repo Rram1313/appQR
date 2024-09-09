@@ -15,7 +15,7 @@ function BtnSave({ qrName, qrColor, qrSize, qrValue, createdBy }) {
       created_by: createdBy,
     };
 
-    fetch("https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/qr/save-qr.php", {
+    fetch("https://vigas.tandempatrimonionacional.eu/ruth/v1/qr/save-qr.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

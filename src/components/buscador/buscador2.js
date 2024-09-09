@@ -12,7 +12,7 @@ const Buscador2 = ({ onSearch }) => {
     }
     const fetchResults = async () => {
       try {
-        const response = await fetch(`https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/qr/buscador.php?query=${encodeURIComponent(query)}`);
+        const response = await fetch(`https://vigas.tandempatrimonionacional.eu/ruth/v1/qr/buscador.php?query=${encodeURIComponent(query)}`);
         const result = await response.json();
         setResults(result.qrs);
       } catch (error) {

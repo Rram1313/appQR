@@ -10,7 +10,7 @@ function ListaUsuarios() {
   return (
     <>
       <Halt></Halt>
-      <ListUsers url="https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/user/list-user.php"></ListUsers>
+      <ListUsers url="https://vigas.tandempatrimonionacional.eu/ruth/v1/user/list-user.php"></ListUsers>
       <BtnBack></BtnBack>
       <BtnUp></BtnUp>
       <Footer></Footer>

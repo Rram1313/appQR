@@ -26,7 +26,7 @@ function BtnQRDelete({ qrName, deleteQR }) {
       console.log("Iniciando petición para eliminar QR", qr)
 
       const response = await fetch(
-        "https://ruth.tandempatrimonionacional.eu/bd-appqr/v1/qr/delete-qr.php",
+        "https://vigas.tandempatrimonionacional.eu/ruth/v1/qr/delete-qr.php",
         {
           method: "DELETE",
           headers: {
