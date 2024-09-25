@@ -6,11 +6,20 @@ import "../css-pages/usuario.css"
 import useAutoCloseModal from "../funcionalidades/useAutoCloseModal"
 
 function BtnUserEdit({ mailto, updateUserName }) {
-  const { isOpen, toggleModal, setAutoClose } = useAutoCloseModal()
+  const { isOpen, toggleModal: baseToogleModal, setAutoClose } = useAutoCloseModal()
   const [mail] = useState(mailto)
   const [name, setName] = useState("")
   const [password, setPassword] = useState("")
   const [responseMessage, setResponseMessage] = useState("")
+
+  const toggleModal = ()=>{
+    if (isOpen){
+      setName("")
+      setPassword("")
+      setResponseMessage("")
+    }
+    baseToogleModal()
+  }
 
   const handleChangeName = async () => {
     try {
@@ -25,8 +34,8 @@ function BtnUserEdit({ mailto, updateUserName }) {
       const data = await response.json()
       setResponseMessage(data.message)
       if (response.ok) {
-        updateUserName(mail, name) // Actualizo el nombre del usuario en la pág
-        setAutoClose(true) // Activo el auto cierre después de recibir la respuesta ok
+        updateUserName(mail, name) 
+        setAutoClose(true) 
       }
     } catch (error) {
       console.error("Error al cambiar el nombre:", error)
@@ -46,7 +55,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
       )
       const data = await response.json()
       setResponseMessage(data.message)
-      setAutoClose(true) // Auto cierre después de recibir la respuesta ok
+      setAutoClose(true)
     } catch (error) {
       console.error("Error al cambiar la contraseña:", error)
       setResponseMessage("Error al cambiar la contraseña")
@@ -91,6 +100,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
                   title="Debes poner tu nombre actual o tu nuevo nombre"
                   required
                   onChange={e => setName(e.target.value)}
+                  value={name}
                 />
               </label>
               <label htmlFor="changePasswordInput" className="changePassword">
@@ -104,6 +114,7 @@ function BtnUserEdit({ mailto, updateUserName }) {
                   title="Debes poner tu contraseña actual o tu nueva contraseña"
                   required
                   onChange={e => setPassword(e.target.value)}
+                  value={password}
                 />
               </label>
               <BtnSecondary onClick={handleChangeName}>

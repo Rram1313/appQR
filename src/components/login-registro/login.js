@@ -33,6 +33,7 @@ const LoginForm = ({ login }) => {
         localStorage.setItem("userName", data.user.name)
         localStorage.setItem("userRole", data.user.role)
         localStorage.setItem("userId", data.user.id)
+        localStorage.setItem("userEmail", data.user.email)
 
         navigate("/appsite")
       } else {

@@ -4,6 +4,7 @@ import Halt3 from "../components/header/halt3"
 import Footer from "../components/footer/Footer"
 import "../components/css-pages/avisoprivacidad.css"
 import BtnUp from "../components/buttons/BtnUp"
+import BtnBack from "../components/buttons/BtnBack"
 const Privacidad = () => (
   <>
     <Halt3></Halt3>
@@ -89,6 +90,7 @@ const Privacidad = () => (
       </section>
     </div>
     <BtnUp />
+    <BtnBack></BtnBack>
     <Footer></Footer>
   </>
 )

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import Seo from "../components/seo"
 import Halt from "../components/header/halt"
 import Footer from "../components/footer/Footer"
-import ListQr from "../components/listqr/listqr"
+import ListQr2 from "../components/listqr/listqr2"
 import BtnBack from "../components/buttons/BtnBack"
 import BtnUp from "../components/buttons/BtnUp"
 import BtnAcceso from "../components/buttons/btnAcceso"
@@ -36,7 +36,7 @@ function ListaQr() {
   return (
     <>
       <Halt></Halt>
-      <ListQr url="https://vigas.tandempatrimonionacional.eu/vigas/v1/qr/list-qr.php"></ListQr>
+      <ListQr2 url="https://vigas.tandempatrimonionacional.eu/vigas/v1/qr/list-qr.php"></ListQr2>
       <BtnBack />
       <BtnUp />
       <Footer></Footer>

@@ -9,13 +9,9 @@ const BtnAddUser = () => {
     setModalIsOpen(true)
   }
 
-  const closeModal = () => {
-    setModalIsOpen(false)
-  }
-
   return (
     <div>
-      <button onClick={openModal}>
+      <button onClick={openModal} className="btnadduserlist">
         <div className="icon-role-container">
           <StaticImage src="../../images/icons/useradd.png" alt="Icon-Role" />
           <span>Agregar Usuario</span>

@@ -4,6 +4,7 @@ import Halt3 from "../components/header/halt3"
 import Footer from "../components/footer/Footer"
 import "../components/css-pages/avisolegal.css"
 import BtnUp from "../components/buttons/BtnUp"
+import BtnBack from "../components/buttons/BtnBack"
 const AvisoLegal = () => (
   <>
     <Halt3></Halt3>
@@ -66,6 +67,7 @@ const AvisoLegal = () => (
       </section>
     </div>
     <BtnUp />
+    <BtnBack></BtnBack>
     <Footer></Footer>
   </>
 )

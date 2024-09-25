@@ -929,11 +929,17 @@
 }
 /*BtnAddUser*/
 .btnadduserlist{
+  background-color: white;
   border: var(--color-secondary) var(--btn-border-solid-1);
   border-radius: var(--btn-radius-1);
   padding: 0.5em;
   font-weight: bold;
   color: var(--color-primary);
+  transition: background-color 0.3s ease;
+}
+.btnadduserlist:hover{
+  background-color: #7c7c7c;
+  cursor: pointer;
 }
 @media (max-width: 412px){
   .btnadduserlist{
@@ -1071,3 +1077,8 @@
 /* .btnSubmit:hover span.texto {
   display: none;
 } */
+
+.linkBtn{
+  background-color: white;
+  border: none;
+}

@@ -5,8 +5,8 @@ import "../buttons/buttons.css"
 function BtnAcceso() {
   return (
     <Link to="/accesoregistro">
-    <button class="btnAcceso animationFundido">
-      <i class="animation"></i>Acceso Generador QR<i class="animation"></i>
+    <button className="btnAcceso animationFundido">
+      <i className="animation"></i>Acceso Generador QR<i className="animation"></i>
     </button>
   </Link>
   )

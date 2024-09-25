@@ -7,10 +7,18 @@ import BtnSecondary from "./BtnSecondary"
 import useAutoCloseModal from "../funcionalidades/useAutoCloseModal"
 
 function BtnRolUser({ mailto, updateUserRole }) {
-  const { isOpen, toggleModal, setAutoClose } = useAutoCloseModal()
+  const { isOpen, toggleModal: baseToggleModal, setAutoClose } = useAutoCloseModal()
   const [mail] = useState(mailto)
   const [selectedRole, setSelectedRole] = useState("")
   const [message, setMessage] = useState("")
+
+  const toggleModal = () => {
+    if (isOpen) {
+      setSelectedRole("")
+      setMessage("")
+    }
+    baseToggleModal()
+  }
 
   const handleRoleUser = async () => {
     try {

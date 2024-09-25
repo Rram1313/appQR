@@ -2,18 +2,16 @@ import React, { useEffect, useState } from "react"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as Yup from "yup"
 import Cuadrado from "../Cuadrado/cuadrado"
-
-
 const RegisterForm = ({ register }) => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
   const [message, setMessage] = useState("")
-
   const handleName = e => setName(e.target.value)
   const handleEmail = e => setEmail(e.target.value)
   const handlePassword = e => setPassword(e.target.value)
-
+  const handleConfirmPassword = e => setConfirmPassword(e.target.value)
   const handleRegistro = async () => {
     try {
       const response = await fetch(
@@ -28,12 +26,18 @@ const RegisterForm = ({ register }) => {
       )
       const data = await response.json()
       setMessage(data.message)
+      // Vaciar los campos solo si el registro fue exitoso
+      if (response.ok) {
+        setName("")
+        setEmail("")
+        setPassword("")
+        setConfirmPassword("") // Vaciar el campo de confirmar contraseña
+      }
     } catch (error) {
       console.error("Error registrando usuario", error)
       setMessage("Error en el registro")
     }
   }
-
   const [styles, setStyles] = useState({
     length: "",
     number: "",
@@ -42,23 +46,19 @@ const RegisterForm = ({ register }) => {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
-
   const capital = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".split("")
   const numbers = "123456789".split("")
   const special = "&@$%+#/*".split("")
-
   const stylGreen = {
     background: "rgba(102,255,102,0.2)",
     borderColor: "rgb(102,255,102)",
     color: "lightgreen",
   }
-
   const stylRed = {
     background: "rgba(231,76,60,0.2)",
-    borderColor: "#e74c3c",
-    color: "#ff3f34",
+    borderColor: "#E74C3C",
+    color: "#FF3F34",
   }
-
   useEffect(() => {
     const validatePassword = () => {
       let lengthStyle = password.length >= 8 ? stylGreen : stylRed
@@ -68,7 +68,6 @@ const RegisterForm = ({ register }) => {
       let specialStyle = special.some(char => password.includes(char))
         ? stylGreen
         : stylRed
-
       setStyles({
         length: lengthStyle,
         number: numberStyle,
@@ -77,23 +76,18 @@ const RegisterForm = ({ register }) => {
     }
     validatePassword()
   }, [password])
-
   const toggleShowPassword = () => {
     setShowPassword(prevShowPassword => !prevShowPassword)
   }
-
   const toggleShowConfirmPassword = () => {
     setShowConfirmPassword(prevShowConfirmPassword => !prevShowConfirmPassword)
   }
-
   const handleInputFocus = () => {
     setShowDropdown(true)
   }
-
   const handleInputBlur = () => {
     setShowDropdown(false)
   }
-
   return (
     <div className="form-register">
       <h1>Nuevo usuario</h1>
@@ -155,7 +149,6 @@ const RegisterForm = ({ register }) => {
                 )}
               </div>
             </div>
-
             <div className="field-group">
               <div>
                 <label htmlFor="password" className="label-register">
@@ -193,7 +186,7 @@ const RegisterForm = ({ register }) => {
                         ...styles.length,
                         display: "block",
                         padding: "5px",
-                        color: "#4f4e4e",
+                        color: "#4F4E4E",
                         fontWeight: "bold",
                       }}
                     >
@@ -204,7 +197,7 @@ const RegisterForm = ({ register }) => {
                         ...styles.number,
                         display: "block",
                         padding: "5px",
-                        color: "#4f4e4e",
+                        color: "#4F4E4E",
                         fontWeight: "bold",
                       }}
                     >
@@ -215,7 +208,7 @@ const RegisterForm = ({ register }) => {
                         ...styles.special,
                         display: "block",
                         padding: "5px",
-                        color: "#4f4e4e",
+                        color: "#4F4E4E",
                         fontWeight: "bold",
                       }}
                     >
@@ -237,6 +230,12 @@ const RegisterForm = ({ register }) => {
                     name="confirmPassword"
                     type={showConfirmPassword ? "text" : "password"}
                     placeholder="Repite tu contraseña"
+                    value={confirmPassword} // Vincula el valor del confirmPassword
+                    onChange={e => {
+                      setConfirmPassword(e.target.value)
+                      setFieldValue("confirmPassword", e.target.value)
+                      handleConfirmPassword(e)
+                    }}
                   />
                   <button
                     type="button"
@@ -278,5 +277,4 @@ const RegisterForm = ({ register }) => {
     </div>
   )
 }
-
 export default RegisterForm

@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import "./footer.css"
+import { Link } from "gatsby"
 
 const Footer = () => {
   return (
@@ -79,27 +80,27 @@ const Footer = () => {
       <div className="accesos-legales animationFundido">
         <div className="text-wrapper">
           |&nbsp;&nbsp;
-          <a href="/accesibilidad" target="_blank" className="subrayar">
+          <Link to="/accesibilidad" target="_blank" className="subrayar">
             Accesibilidad
-          </a>
+          </Link>
           &nbsp;&nbsp;&nbsp;|&nbsp;
         </div>
         <div className="text-wrapper">
-          <a href="/avisolegal" target="_blank" className="subrayar">
+          <Link to="/avisolegal" target="_blank" className="subrayar">
             Aviso Legal
-          </a>
+          </Link>
           &nbsp;&nbsp;|&nbsp;
         </div>
         <div className="text-wrapper">
-          <a href="/avisoprivacidad" target="_blank" className="subrayar">
+          <Link to="/avisoprivacidad" target="_blank" className="subrayar">
             Aviso Privacidad
-          </a>
+          </Link>
           &nbsp;&nbsp;|&nbsp;
         </div>
         <div className="text-wrapper">
-          <a href="/cookies" target="_blank" className="subrayar">
+          <Link to="/cookies" target="_blank" className="subrayar">
             Cookies
-          </a>
+          </Link>
           &nbsp;&nbsp;|&nbsp;
         </div>
       </div>
